@@ -8,7 +8,15 @@ function App(props) {
 
   const addNote = (event) => {
     event.preventDefault();
-    console.log("button clicked", event.target);
+    const noteObject = {
+      content: newNote,
+      date: new Date().toLocaleDateString(),
+      important: Math.random() < 0.5,
+      id: notes.length + 1,
+    };
+    console.log(noteObject.date);
+    setNotes(notes.concat(noteObject));
+    setNewNote("");
   };
   const handleNoteChange = (event) => {
     // console.log(event.target.value);
